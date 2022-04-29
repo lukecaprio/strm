@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import {NavBar} from "./ui-components";
+import Streams from './Streams'
+import Edit from './Edit'
+import { Routes, Route } from 'react-router-dom'
+import Details from './Details'
+import Delete from './Delete'
+import AddStream from './AddStream'
+import {Flex } from '@aws-amplify/ui-react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <div className='App'>
+
+      <Routes>
+            <Route exact path='/' element={<div><NavBar/><Streams/></div>} />
+            <Route exact path='/add' element={<AddStream/>} />
+            <Route exact path='/Streams' element={<Streams/>} />
+            <Route exact path='/details' element={<Details/>} />
+            <Route exact path='/edit/:sid' element={<Edit/>} />
+            <Route exact path='/delete/:did' element={<Delete/>} />
+          </Routes>
+
+      </div>
+  
+    )
+  } 
+ 
+  
 }
 
-export default App;
+export default App
