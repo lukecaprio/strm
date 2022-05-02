@@ -7,6 +7,7 @@ import Details from './Details'
 import Delete from './Delete'
 import AddStream from './AddStream'
 import {Flex } from '@aws-amplify/ui-react';
+import { withAuthenticator } from '@aws-amplify/ui-react';
 
 class App extends Component {
   render() {
@@ -30,4 +31,4 @@ class App extends Component {
   
 }
 
-export default App
+export default withAuthenticator(App);
