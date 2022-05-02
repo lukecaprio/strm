@@ -10,6 +10,11 @@
       "StackName": "amplify-strm-staging-20014",
       "StackId": "arn:aws:cloudformation:us-east-1:373215252856:stack/amplify-strm-staging-20014/f231d970-c696-11ec-b033-0ef388d6fdbd",
       "AmplifyAppId": "d3e7cfaok3959e"
+    },
+    "categories": {
+      "auth": {
+        "Strm": {}
+      }
     }
   }
 }

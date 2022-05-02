@@ -8,6 +8,7 @@
 import React from "react";
 import {
   getOverrideProps,
+  useAuthSignOutAction,
   useNavigateAction,
 } from "@aws-amplify/ui-react/internal";
 import {
@@ -22,6 +23,7 @@ export default function NavBar(props) {
   const { streaming, overrides, ...rest } = props;
   const dashboardOnClick = useNavigateAction({ type: "url", url: "/" });
   const jobsOnClick = useNavigateAction({ type: "url", url: "/add" });
+  const applicantsOnClick = useAuthSignOutAction({ global: false });
   const companyOnClick = useNavigateAction({ type: "url", url: "/details" });
   return (
     <Flex
@@ -153,7 +155,10 @@ export default function NavBar(props) {
           position="relative"
           padding="0px 0px 0px 0px"
           whiteSpace="pre-wrap"
-          children="Topster"
+          children="Log Out"
+          onClick={() => {
+            applicantsOnClick();
+          }}
           {...getOverrideProps(overrides, "Applicants")}
         ></Text>
         <Text
@@ -189,10 +194,11 @@ export default function NavBar(props) {
         height="45px"
         position="relative"
         padding="0px 0px 0px 0px"
+        display="none"
         {...getOverrideProps(overrides, "Frame 32129767081")}
       >
         <SearchField
-          display="flex"
+          display="none"
           gap="8px"
           direction="column"
           width="300px"
